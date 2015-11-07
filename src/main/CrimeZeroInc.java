@@ -19,6 +19,7 @@ public class CrimeZeroInc {
 	private static final List<String> superHeros = new ArrayList<String>(){
 		{
 			add("HULK");
+			add("HUL");
 		}
 	};
 
@@ -29,14 +30,14 @@ public class CrimeZeroInc {
 	private String findSuperheroWith(String word, int index, List<Integer> sms) {
 		List<String> wordsForNumber = keyPad.get(sms.get(index));
 		for (String wordForNumber: wordsForNumber){
-			if(superHeros.contains(word + wordForNumber)){
-				return word + wordForNumber;
-			}else {
-				if(index < sms.size() - 1){
-					String superhero = findSuperheroWith(word + wordForNumber, index + 1, sms);
-					if(!superhero.equals("No Hero Found")){
-						return superhero;
-					}
+			if(index == sms.size() - 1){
+				if(superHeros.contains(word + wordForNumber)){
+					return word + wordForNumber;
+				}
+			}else{
+				String superhero = findSuperheroWith(word + wordForNumber, index + 1, sms);
+				if(!superhero.equals("No Hero Found")){
+					return superhero;
 				}
 			}
 		}
