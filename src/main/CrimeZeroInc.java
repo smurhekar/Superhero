@@ -3,25 +3,14 @@ package main;
 import java.util.*;
 
 public class CrimeZeroInc {
-	private static final Map<Integer, List<String>> keyPad = new HashMap<Integer, List<String>>(){
-		{
-			put(2, Arrays.asList("A", "B", "C"));
-			put(3, Arrays.asList("D", "E", "F"));
-			put(4, Arrays.asList("G", "H", "I"));
-			put(5, Arrays.asList("J", "K", "L"));
-			put(6, Arrays.asList("M", "N", "O"));
-			put(7, Arrays.asList("P", "Q", "R", "S"));
-			put(8, Arrays.asList("T", "U", "V"));
-			put(9, Arrays.asList("W", "X", "Y", "Z"));
-		}
-	};
 
-	private static final List<String> superHeros = new ArrayList<String>(){
-		{
-			add("HULK");
-			add("HUL");
-		}
-	};
+	private final Map<Integer, List<String>> keyPad;
+	private final List<String> superHeros;
+
+	public CrimeZeroInc(Map<Integer, List<String>> keyPad, List<String> superHeros) {
+		this.keyPad = keyPad;
+		this.superHeros = superHeros;
+	}
 
 	public String callForHelp(List<Integer> sms) {
 		return findSuperheroWith("", 0, sms);
