@@ -17,14 +17,14 @@ public class CrimeZeroInc {
 	}
 
 	private String findSuperheroWith(String word, int index, List<Integer> sms) {
-		List<String> wordsForNumber = keyPad.get(sms.get(index));
-		for (String wordForNumber: wordsForNumber){
-			if(isLastWordInSms(index, sms)){
-				if(isSuperhero(word + wordForNumber)){
-					return word + wordForNumber;
+		List<String> letters = keyPad.get(sms.get(index));
+		for (String letter: letters){
+			if(isLastNumberInSms(index, sms)){
+				if(isSuperhero(word + letter)){
+					return word + letter;
 				}
 			}else{
-				String superhero = findSuperheroWith(word + wordForNumber, index + 1, sms);
+				String superhero = findSuperheroWith(word + letter, index + 1, sms);
 				if(!superhero.equals("No Hero Found")){
 					return superhero;
 				}
@@ -37,7 +37,7 @@ public class CrimeZeroInc {
 		return superHeros.contains(word);
 	}
 
-	private boolean isLastWordInSms(int index, List<Integer> sms) {
+	private boolean isLastNumberInSms(int index, List<Integer> sms) {
 		return index == sms.size() - 1;
 	}
 }
